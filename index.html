@@ -1,0 +1,2088 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Engineering Consultant // Distributed Systems & Architecture</title>
+    <meta name="description" content="High-performance software engineering consulting portfolio featuring interactive IDE simulation, distributed systems topology inspector, dynamic code benchmarks, corporate tech stack matrix, and an enterprise audit booking portal." />
+    <meta property="og:title" content="Software Engineering Consultant // Distributed Systems & Architecture" />
+    <meta property="og:description" content="High-performance software engineering consulting portfolio featuring interactive IDE simulation, distributed systems topology inspector, dynamic code benchmarks, corporate tech stack matrix, and an enterprise audit booking portal." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#090D16" />
+    <style>
+      /* ==========================================================================
+         ELITE DESIGN SYSTEM & EXACT CSS VARIABLES
+         Primary Brand Accent: #090D16
+         Secondary Background/Accent: #10B981
+         Typography/Dark Contrast Neutral: #60A5FA
+         ========================================================================== */
+      :root {
+        --primary-brand-accent: #090D16;
+        --secondary-accent: #10B981;
+        --typography-contrast-neutral: #60A5FA;
+
+        --bg-main: #090D16;
+        --bg-surface: #0e1726;
+        --bg-card: rgba(14, 23, 38, 0.85);
+        --bg-elevated: #162238;
+        --bg-terminal: #070a10;
+
+        --border-subtle: rgba(96, 165, 250, 0.16);
+        --border-focus: rgba(96, 165, 250, 0.45);
+        --border-accent: #10B981;
+
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --text-accent: #10B981;
+        --text-contrast: #60A5FA;
+
+        /* Fluid Clamp Scaling */
+        --font-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.82rem);
+        --font-sm: clamp(0.84rem, 0.8rem + 0.25vw, 0.95rem);
+        --font-base: clamp(0.96rem, 0.92rem + 0.35vw, 1.08rem);
+        --font-lg: clamp(1.12rem, 1.05rem + 0.5vw, 1.3rem);
+        --font-xl: clamp(1.35rem, 1.2rem + 0.8vw, 1.75rem);
+        --font-2xl: clamp(1.7rem, 1.45rem + 1.2vw, 2.3rem);
+        --font-3xl: clamp(2.1rem, 1.7rem + 1.8vw, 3.1rem);
+        --font-hero: clamp(2.4rem, 1.8rem + 2.8vw, 4.2rem);
+
+        --space-container: clamp(1.2rem, 4vw, 3rem);
+        --space-section: clamp(4rem, 7vw, 7rem);
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 16px;
+
+        --shadow-elevation: 0 16px 36px -8px rgba(0, 0, 0, 0.75);
+        --shadow-glow-emerald: 0 0 24px rgba(16, 185, 129, 0.22);
+        --shadow-glow-blue: 0 0 24px rgba(96, 165, 250, 0.22);
+        --transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        color-scheme: dark;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      body {
+        background-color: var(--primary-brand-accent);
+        color: var(--text-primary);
+        font-size: var(--font-base);
+        line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background-image: 
+          radial-gradient(circle at 15% 10%, rgba(96, 165, 250, 0.07) 0%, transparent 40%),
+          radial-gradient(circle at 85% 60%, rgba(16, 185, 129, 0.06) 0%, transparent 45%);
+        background-attachment: fixed;
+      }
+
+      code, pre, .font-mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+
+      /* Container */
+      .app-container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-container);
+      }
+
+      /* Sticky Nav Header */
+      .sticky-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(9, 13, 22, 0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: var(--transition);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .brand-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: var(--text-primary);
+      }
+      .brand-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-sm);
+        background: linear-gradient(135deg, var(--secondary-accent), var(--typography-contrast-neutral));
+        display: grid;
+        place-items: center;
+        color: var(--primary-brand-accent);
+        font-weight: 800;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow-glow-emerald);
+      }
+      .brand-title {
+        font-size: var(--font-sm);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .brand-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: var(--font-xs);
+        color: var(--secondary-accent);
+        font-family: ui-monospace, monospace;
+      }
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        background-color: var(--secondary-accent);
+        border-radius: 50%;
+        box-shadow: 0 0 8px var(--secondary-accent);
+        animation: pulseDot 2s infinite ease-in-out;
+      }
+      @keyframes pulseDot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.85); }
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: var(--font-sm);
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.4rem 0.2rem;
+        position: relative;
+      }
+      .nav-link:hover, .nav-link:focus-visible {
+        color: var(--text-contrast);
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      /* Buttons & CTA */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: var(--font-sm);
+        padding: 0.65rem 1.3rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        text-decoration: none;
+        transition: var(--transition);
+        border: 1px solid transparent;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background: var(--secondary-accent);
+        color: var(--primary-brand-accent);
+        box-shadow: var(--shadow-glow-emerald);
+      }
+      .btn-primary:hover, .btn-primary:focus-visible {
+        transform: translateY(-2px);
+        background: #0ea372;
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.45);
+      }
+      .btn-outline {
+        background: rgba(14, 23, 38, 0.6);
+        border-color: var(--border-subtle);
+        color: var(--text-contrast);
+      }
+      .btn-outline:hover, .btn-outline:focus-visible {
+        border-color: var(--text-contrast);
+        background: rgba(96, 165, 250, 0.1);
+        transform: translateY(-2px);
+      }
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        padding: 0.5rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+      }
+
+      /* Advanced Modern Hover Transforms */
+      .hover-lift {
+        transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      }
+      .hover-lift:hover {
+        transform: translateY(-4px) scale(1.01);
+        border-color: rgba(96, 165, 250, 0.4);
+        box-shadow: var(--shadow-elevation), var(--shadow-glow-blue);
+      }
+
+      /* Section Common */
+      section {
+        padding: var(--space-section) 0;
+        position: relative;
+      }
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: var(--font-xs);
+        font-family: ui-monospace, monospace;
+        color: var(--text-accent);
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 0.3rem 0.75rem;
+        border-radius: 9999px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .section-heading {
+        font-size: var(--font-2xl);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+      }
+      .section-subheading {
+        color: var(--text-secondary);
+        font-size: var(--font-base);
+        max-width: 680px;
+        margin-bottom: 2.5rem;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: clamp(3rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+      .hero-headline {
+        font-size: var(--font-hero);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.25rem;
+      }
+      .hero-headline .highlight {
+        color: var(--secondary-accent);
+        display: inline-block;
+      }
+      .hero-headline .contrast-highlight {
+        color: var(--typography-contrast-neutral);
+      }
+      .hero-desc {
+        color: var(--text-secondary);
+        font-size: var(--font-lg);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 620px;
+      }
+      .hero-cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .hero-trust-tag {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: var(--font-xs);
+        color: var(--text-muted);
+        font-family: ui-monospace, monospace;
+      }
+      .hero-trust-tag span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      /* Hero Right: Live Architecture Gauge / Metric card */
+      .hero-telemetry-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem;
+        box-shadow: var(--shadow-elevation);
+        position: relative;
+        overflow: hidden;
+      }
+      .telemetry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      .telemetry-title {
+        font-size: var(--font-sm);
+        font-weight: 700;
+        color: var(--text-contrast);
+        font-family: ui-monospace, monospace;
+      }
+      .telemetry-metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      .telemetry-stat {
+        background: var(--bg-surface);
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(96, 165, 250, 0.1);
+      }
+      .stat-label {
+        font-size: var(--font-xs);
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+        font-family: ui-monospace, monospace;
+      }
+      .stat-val {
+        font-size: var(--font-xl);
+        font-weight: 800;
+        color: var(--text-primary);
+        display: flex;
+        align-items: baseline;
+        gap: 0.25rem;
+      }
+      .stat-val.accent { color: var(--secondary-accent); }
+      .stat-val.contrast { color: var(--typography-contrast-neutral); }
+      .stat-unit { font-size: var(--font-xs); font-weight: 400; color: var(--text-muted); }
+
+      /* Asymmetrical Grid Components */
+      .asymmetrical-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+      }
+      .bento-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .bento-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(96, 165, 250, 0.03) 0%, transparent 100%);
+        pointer-events: none;
+      }
+      .col-span-8 { grid-column: span 8; }
+      .col-span-4 { grid-column: span 4; }
+      .col-span-6 { grid-column: span 6; }
+      .bento-card h3 {
+        font-size: var(--font-lg);
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+        color: var(--text-primary);
+      }
+      .bento-card p {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+      .bento-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .bento-tag {
+        font-size: var(--font-xs);
+        font-family: ui-monospace, monospace;
+        color: var(--text-contrast);
+        background: rgba(96, 165, 250, 0.08);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+        padding: 0.2rem 0.6rem;
+        border-radius: var(--radius-sm);
+      }
+
+      /* Interactive Module 1: Modern Dark Developer IDE Layout */
+      .ide-container {
+        background: var(--bg-terminal);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-elevation);
+        overflow: hidden;
+      }
+      .ide-titlebar {
+        background: #090e18;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem 1rem;
+      }
+      .ide-window-controls {
+        display: flex;
+        gap: 0.45rem;
+      }
+      .ide-dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+      .dot-close { background: #ef4444; }
+      .dot-min { background: #f59e0b; }
+      .dot-max { background: var(--secondary-accent); }
+      .ide-filename {
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        color: var(--text-secondary);
+      }
+      .ide-tab-bar {
+        display: flex;
+        background: #0b121f;
+        border-bottom: 1px solid var(--border-subtle);
+        overflow-x: auto;
+      }
+      .ide-tab {
+        background: transparent;
+        border: none;
+        border-right: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        padding: 0.65rem 1.25rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: var(--transition);
+      }
+      .ide-tab.active {
+        background: var(--bg-terminal);
+        color: var(--text-contrast);
+        border-top: 2px solid var(--text-contrast);
+      }
+      .ide-editor-grid {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        min-height: 280px;
+        max-height: 380px;
+        overflow-y: auto;
+        background: var(--bg-terminal);
+      }
+      .ide-gutter {
+        user-select: none;
+        color: #475569;
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        line-height: 1.7;
+        text-align: right;
+        padding: 1rem 0.6rem;
+        border-right: 1px solid rgba(255,255,255,0.05);
+      }
+      .ide-code-pane {
+        padding: 1rem 1.25rem;
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        line-height: 1.7;
+        overflow-x: auto;
+        white-space: pre;
+      }
+      /* Syntax Tokens */
+      .token-kw { color: #f43f5e; font-weight: 600; }
+      .token-fn { color: var(--typography-contrast-neutral); }
+      .token-str { color: var(--secondary-accent); }
+      .token-type { color: #a78bfa; }
+      .token-comm { color: #64748b; font-style: italic; }
+
+      .ide-controls-bar {
+        background: #0a111e;
+        border-top: 1px solid var(--border-subtle);
+        padding: 0.6rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .ide-btn-group {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .ide-btn {
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        padding: 0.4rem 0.8rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+        transition: var(--transition);
+      }
+      .ide-btn-run {
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--secondary-accent);
+        border-color: rgba(16, 185, 129, 0.4);
+      }
+      .ide-btn-run:hover {
+        background: var(--secondary-accent);
+        color: var(--primary-brand-accent);
+      }
+      .ide-terminal-drawer {
+        background: #05080e;
+        border-top: 1px solid var(--border-subtle);
+        padding: 0.75rem 1rem;
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        max-height: 160px;
+        overflow-y: auto;
+      }
+      .terminal-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+      .terminal-log-line {
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+      }
+      .terminal-log-line.success { color: var(--secondary-accent); }
+      .terminal-log-line.warn { color: #f59e0b; }
+      .terminal-log-line.info { color: var(--typography-contrast-neutral); }
+
+      /* Interactive Module 2: Architectural System Topology Diagram Nodes */
+      .topology-wrapper {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+      .topology-canvas-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .topology-graph {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        position: relative;
+        padding: 1rem 0;
+      }
+      .topology-node {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 0.85rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        z-index: 2;
+      }
+      .topology-node:hover, .topology-node.active {
+        border-color: var(--secondary-accent);
+        transform: translateX(6px);
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+      }
+      .topology-node.active {
+        background: rgba(16, 185, 129, 0.08);
+      }
+      .node-info-left {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .node-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--secondary-accent);
+      }
+      .node-name {
+        font-weight: 700;
+        font-size: var(--font-sm);
+      }
+      .node-subtext {
+        font-size: var(--font-xs);
+        color: var(--text-muted);
+        font-family: ui-monospace, monospace;
+      }
+      .node-badge {
+        font-family: ui-monospace, monospace;
+        font-size: var(--font-xs);
+        color: var(--typography-contrast-neutral);
+        background: rgba(96, 165, 250, 0.1);
+        padding: 0.2rem 0.5rem;
+        border-radius: var(--radius-sm);
+      }
+      .node-connector-line {
+        height: 16px;
+        width: 2px;
+        background: repeating-linear-gradient(to bottom, var(--border-subtle), var(--border-subtle) 4px, transparent 4px, transparent 8px);
+        margin: -0.6rem 0 -0.6rem 24px;
+        z-index: 1;
+      }
+      .topology-inspector-card {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .inspector-header {
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+      }
+      .inspector-title {
+        font-size: var(--font-base);
+        font-weight: 700;
+        color: var(--text-contrast);
+      }
+      .inspector-metric-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+        font-size: var(--font-sm);
+      }
+      .inspector-metric-label {
+        color: var(--text-muted);
+      }
+      .inspector-metric-value {
+        font-family: ui-monospace, monospace;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+      .inspector-recommendation {
+        background: rgba(9, 13, 22, 0.7);
+        border-left: 3px solid var(--secondary-accent);
+        padding: 0.75rem 1rem;
+        font-size: var(--font-xs);
+        color: var(--text-secondary);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        margin-top: 1rem;
+      }
+
+      /* Interactive Module 3: Dynamic Code Snippet Tabs */
+      .snippet-tabs-wrapper {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+      }
+      .snippet-nav-bar {
+        display: flex;
+        background: #0a101c;
+        border-bottom: 1px solid var(--border-subtle);
+        overflow-x: auto;
+      }
+      .snippet-tab-btn {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        padding: 0.8rem 1.25rem;
+        font-size: var(--font-sm);
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+      }
+      .snippet-tab-btn.active {
+        color: var(--text-accent);
+        border-bottom-color: var(--secondary-accent);
+        background: rgba(16, 185, 129, 0.05);
+      }
+      .snippet-content-body {
+        padding: 1.5rem;
+      }
+      .snippet-meta-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .snippet-desc {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+      }
+      .snippet-copy-btn {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-contrast);
+        padding: 0.35rem 0.85rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-size: var(--font-xs);
+        font-family: ui-monospace, monospace;
+        transition: var(--transition);
+      }
+      .snippet-copy-btn:hover {
+        border-color: var(--text-contrast);
+      }
+
+      /* Interactive Module 4: Corporate Tech Stack Badges Matrix */
+      .tech-filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .filter-pill {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        padding: 0.4rem 1rem;
+        border-radius: 9999px;
+        font-size: var(--font-xs);
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      .filter-pill.active, .filter-pill:hover {
+        background: rgba(96, 165, 250, 0.15);
+        color: var(--text-contrast);
+        border-color: var(--typography-contrast-neutral);
+      }
+      .tech-badge-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .tech-badge-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 1rem 1.25rem;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .tech-badge-item:hover, .tech-badge-item.active {
+        border-color: var(--secondary-accent);
+        transform: translateY(-2px);
+        background: rgba(14, 23, 38, 0.95);
+      }
+      .tech-badge-glyph {
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-sm);
+        background: var(--bg-elevated);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 0.9rem;
+        color: var(--text-contrast);
+        border: 1px solid rgba(96, 165, 250, 0.2);
+      }
+      .tech-badge-title {
+        font-weight: 700;
+        font-size: var(--font-sm);
+      }
+      .tech-badge-sub {
+        font-size: var(--font-xs);
+        color: var(--text-muted);
+        font-family: ui-monospace, monospace;
+      }
+      .tech-detail-modal {
+        margin-top: 1.5rem;
+        background: var(--bg-elevated);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 1.25rem 1.5rem;
+        display: none;
+      }
+      .tech-detail-modal.show { display: block; }
+
+      /* Form Validation Section */
+      .audit-form-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: clamp(1.5rem, 4vw, 2.75rem);
+        max-width: 820px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-elevation);
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+      .form-group.col-span-full {
+        grid-column: span 2;
+      }
+      .form-label {
+        font-size: var(--font-xs);
+        font-weight: 600;
+        color: var(--text-secondary);
+        display: flex;
+        justify-content: space-between;
+      }
+      .form-input, .form-select, .form-textarea {
+        background: #090e18;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem 1rem;
+        color: var(--text-primary);
+        font-size: var(--font-sm);
+        transition: var(--transition);
+        width: 100%;
+        outline: none;
+      }
+      .form-input:focus, .form-select:focus, .form-textarea:focus {
+        border-color: var(--text-contrast);
+        box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+      }
+      .form-input.is-invalid, .form-textarea.is-invalid {
+        border-color: #ef4444;
+        background: rgba(239, 68, 68, 0.05);
+      }
+      .form-input.is-valid {
+        border-color: var(--secondary-accent);
+      }
+      .form-error-msg {
+        font-size: var(--font-xs);
+        color: #ef4444;
+        display: none;
+      }
+      .form-error-msg.visible {
+        display: block;
+      }
+      .form-feedback-banner {
+        display: none;
+        padding: 1.25rem;
+        border-radius: var(--radius-sm);
+        margin-top: 1.5rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid var(--secondary-accent);
+        color: var(--text-primary);
+      }
+      .form-feedback-banner.show {
+        display: block;
+      }
+
+      /* Custom Footer */
+      .site-footer {
+        background: #060910;
+        border-top: 1px solid var(--border-subtle);
+        padding: 4rem 0 2rem;
+        color: var(--text-muted);
+        font-size: var(--font-xs);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .footer-brand-title {
+        color: var(--text-primary);
+        font-size: var(--font-base);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .footer-desc {
+        color: var(--text-secondary);
+        font-size: var(--font-sm);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .footer-col-title {
+        color: var(--text-contrast);
+        font-size: var(--font-xs);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+      }
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .footer-links a:hover {
+        color: var(--text-accent);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      /* Responsiveness & Mobile Breakpoints */
+      @media (max-width: 960px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .col-span-8, .col-span-4, .col-span-6 { grid-column: span 12; }
+        .topology-wrapper { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+        .nav-links { display: none; }
+        .mobile-menu-toggle { display: block; }
+      }
+      @media (max-width: 640px) {
+        .form-grid { grid-template-columns: 1fr; }
+        .form-group.col-span-full { grid-column: span 1; }
+        .telemetry-metrics-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sticky Semantic Header -->
+    <header class="sticky-header" id="header" role="banner">
+      <div class="app-container">
+        <nav class="nav-inner" aria-label="Main Navigation">
+          <a href="#" class="brand-badge" aria-label="Consultant Home">
+            <div class="brand-icon">&lt;/&gt;</div>
+            <div>
+              <div class="brand-title">ALEC CHEN, Ph.D.</div>
+              <div class="brand-status">
+                <span class="status-dot"></span>
+                <span>AVAILABLE Q3/Q4</span>
+              </div>
+            </div>
+          </a>
+
+          <ul class="nav-links" role="menubar">
+            <li role="none"><a href="#offerings" class="nav-link" role="menuitem">Offerings</a></li>
+            <li role="none"><a href="#ide" class="nav-link" role="menuitem">Interactive IDE</a></li>
+            <li role="none"><a href="#topology" class="nav-link" role="menuitem">System Topology</a></li>
+            <li role="none"><a href="#snippets" class="nav-link" role="menuitem">Patterns</a></li>
+            <li role="none"><a href="#techstack" class="nav-link" role="menuitem">Tech Stack</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <a href="#audit-form" class="btn btn-primary" aria-label="Request System Audit">Request Systems Audit</a>
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Hero Section with Clear Conversion Goal -->
+      <section class="hero-section" id="hero" aria-labelledby="hero-title">
+        <div class="app-container">
+          <div class="hero-grid">
+            <div>
+              <div class="section-badge">Principal Software Engineering Consultant</div>
+              <h1 class="hero-headline" id="hero-title">
+                Architecting <span class="highlight">Billion-Scale</span> Systems with <span class="contrast-highlight">Sub-Millisecond</span> Precision.
+              </h1>
+              <p class="hero-desc">
+                Advising high-growth startups and Fortune 50 enterprise engineering executives on distributed consensus, multi-region failover, latency reduction, and massive cloud infrastructure cost elimination.
+              </p>
+              <div class="hero-cta-group">
+                <a href="#audit-form" class="btn btn-primary" id="heroCtaPrimary">Book 45-Min Systems Triage</a>
+                <a href="#topology" class="btn btn-outline" id="heroCtaSecondary">Inspect Architecture Graph</a>
+              </div>
+              <div class="hero-trust-tag">
+                <span>✓ Strict NDA Protected</span>
+                <span>✓ 100% Direct Advisory</span>
+                <span>✓ 500k+ Peak QPS Proven</span>
+              </div>
+            </div>
+
+            <!-- Hero Live Telemetry Preview Card -->
+            <div class="hero-telemetry-card hover-lift" aria-label="Live Systems Telemetry">
+              <div class="telemetry-header">
+                <span class="telemetry-title">PRODUCTION TELEMETRY // BENCHMARK</span>
+                <span class="status-dot"></span>
+              </div>
+              <div class="telemetry-metrics-grid">
+                <div class="telemetry-stat">
+                  <div class="stat-label">SLA AVAILABILITY</div>
+                  <div class="stat-val accent">99.999<span class="stat-unit">%</span></div>
+                </div>
+                <div class="telemetry-stat">
+                  <div class="stat-label">PEAK THROUGHPUT</div>
+                  <div class="stat-val contrast">485<span class="stat-unit">k QPS</span></div>
+                </div>
+                <div class="telemetry-stat">
+                  <div class="stat-label">P99 LATENCY</div>
+                  <div class="stat-val">1.28<span class="stat-unit">ms</span></div>
+                </div>
+                <div class="telemetry-stat">
+                  <div class="stat-label">CLOUD WASTE REDUCED</div>
+                  <div class="stat-val accent">$14.2<span class="stat-unit">M</span></div>
+                </div>
+              </div>
+              <div style="font-size: var(--font-xs); color: var(--text-muted); font-family: ui-monospace, monospace;">
+                Audited Client Clusters: AWS us-east-1, GCP europe-west3, Azure Central
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Asymmetrical Grid Components -->
+      <section id="offerings" aria-labelledby="offerings-heading">
+        <div class="app-container">
+          <div class="section-badge">Core Advisory Capabilities</div>
+          <h2 class="section-heading" id="offerings-heading">High-Stakes Technical Consulting</h2>
+          <p class="section-subheading">Targeted architectural interventions designed to unblock scale, eliminate runtime bottlenecks, and de-risk mission-critical migrations.</p>
+
+          <div class="asymmetrical-grid">
+            <div class="bento-card col-span-8 hover-lift">
+              <h3>Distributed Consensus &amp; Sharding Architecture</h3>
+              <p>Designing high-throughput Raft and Paxos consensus clusters, write-ahead-log replication, zero-downtime database migrations, and resilient event-driven outbox patterns.</p>
+              <div class="bento-tags">
+                <span class="bento-tag">Raft Protocol</span>
+                <span class="bento-tag">Multi-Raft Sharding</span>
+                <span class="bento-tag">Saga Orchestration</span>
+                <span class="bento-tag">CockroachDB</span>
+              </div>
+            </div>
+
+            <div class="bento-card col-span-4 hover-lift">
+              <h3>Kernel &amp; eBPF Profiling</h3>
+              <p>Kernel-level socket inspection, zero-copy packet processing, and TCP buffer tuning that slash tail latency on mission-critical payment rails.</p>
+              <div class="bento-tags">
+                <span class="bento-tag">Cilium eBPF</span>
+                <span class="bento-tag">p99 Tuning</span>
+                <span class="bento-tag">Envoy Proxy</span>
+              </div>
+            </div>
+
+            <div class="bento-card col-span-4 hover-lift">
+              <h3>Cloud FinOps &amp; Egress Elimination</h3>
+              <p>Aggressive compute right-sizing, Spot/Graviton migration, NAT gateway cost mitigation, and cross-AZ data serialization optimization.</p>
+              <div class="bento-tags">
+                <span class="bento-tag">FinOps Certified</span>
+                <span class="bento-tag">Kubernetes Karpenter</span>
+                <span class="bento-tag">Zero-Waste Mesh</span>
+              </div>
+            </div>
+
+            <div class="bento-card col-span-8 hover-lift">
+              <h3>Disaster Recovery &amp; Chaos Engineering</h3>
+              <p>Automated regional split-brain drills, fault injection pipelines, self-healing circuits, and multi-region active-active database failover validation.</p>
+              <div class="bento-tags">
+                <span class="bento-tag">Chaos Mesh</span>
+                <span class="bento-tag">Active-Active Failover</span>
+                <span class="bento-tag">RTO &lt; 30s</span>
+                <span class="bento-tag">RPO = 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Module 1: Modern Dark Developer IDE Layout -->
+      <section id="ide" aria-labelledby="ide-heading">
+        <div class="app-container">
+          <div class="section-badge">Live Engineering Workbench</div>
+          <h2 class="section-heading" id="ide-heading">Interactive Architecture IDE</h2>
+          <p class="section-subheading">Explore production distributed primitives with embedded tab switching, live benchmark execution, and terminal telemetry.</p>
+
+          <div class="ide-container" role="region" aria-label="Interactive Code IDE">
+            <div class="ide-titlebar">
+              <div class="ide-window-controls">
+                <span class="ide-dot dot-close"></span>
+                <span class="ide-dot dot-min"></span>
+                <span class="ide-dot dot-max"></span>
+              </div>
+              <div class="ide-filename" id="ideCurrentFileName">raft_consensus.go — consultant-core</div>
+              <div style="font-size: var(--font-xs); color: var(--secondary-accent); font-family: ui-monospace, monospace;">Go 1.23.2</div>
+            </div>
+
+            <div class="ide-tab-bar" role="tablist" aria-label="IDE Files">
+              <button class="ide-tab active" role="tab" aria-selected="true" data-file="raft_consensus.go">raft_consensus.go</button>
+              <button class="ide-tab" role="tab" aria-selected="false" data-file="token_bucket.rs">token_bucket.rs</button>
+              <button class="ide-tab" role="tab" aria-selected="false" data-file="circuit_breaker.ts">circuit_breaker.ts</button>
+              <button class="ide-tab" role="tab" aria-selected="false" data-file="event_mesh.py">event_mesh.py</button>
+            </div>
+
+            <div class="ide-editor-grid">
+              <div class="ide-gutter" id="ideGutter" aria-hidden="true"></div>
+              <div class="ide-code-pane" id="ideCodeDisplay" tabindex="0" role="textbox" aria-label="Code Editor Display"></div>
+            </div>
+
+            <div class="ide-controls-bar">
+              <div class="ide-btn-group">
+                <button class="ide-btn ide-btn-run" id="btnRunBenchmark">▶ Run Benchmark</button>
+                <button class="ide-btn" id="btnSimulateChaos">⚡ Inject Partition</button>
+                <button class="ide-btn" id="btnCopyIdeCode">📋 Copy Source</button>
+              </div>
+              <div style="font-family: ui-monospace, monospace; font-size: var(--font-xs); color: var(--text-muted);" id="ideStatusText">
+                Memory: 0 B/op • Goroutines: 1024 • Status: Nominal
+              </div>
+            </div>
+
+            <div class="ide-terminal-drawer" aria-live="polite">
+              <div class="terminal-header">
+                <span>Integrated Execution Terminal</span>
+                <span style="color: var(--secondary-accent);">● READY</span>
+              </div>
+              <div id="terminalOutput">
+                <div class="terminal-log-line info">[INIT] Consultant Architecture Test harness initialized.</div>
+                <div class="terminal-log-line">[SYS] Worker pool spawned (16 CPU cores, eBPF telemetry active). Click "Run Benchmark" to execute.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Module 2: Architectural System Topology Diagram Nodes -->
+      <section id="topology" aria-labelledby="topology-heading">
+        <div class="app-container">
+          <div class="section-badge">Live System Topology Engine</div>
+          <h2 class="section-heading" id="topology-heading">Distributed Architecture Graph</h2>
+          <p class="section-subheading">Interactive pipeline visualization. Click on any topology node to inspect throughput metrics, failover models, and advisory insights.</p>
+
+          <div class="topology-wrapper">
+            <div class="topology-canvas-card hover-lift">
+              <div style="font-size: var(--font-xs); color: var(--text-muted); font-family: ui-monospace, monospace; margin-bottom: 1rem;">
+                INTERACTIVE DATA PIPELINE // SELECT NODE TO INSPECT
+              </div>
+              <div class="topology-graph" id="topologyNodeList">
+                <div class="topology-node active" data-node="edge" tabindex="0" role="button" aria-pressed="true">
+                  <div class="node-info-left">
+                    <span class="node-indicator"></span>
+                    <div>
+                      <div class="node-name">1. Global Anycast Edge &amp; WAF</div>
+                      <div class="node-subtext">Cloudflare / Fastly PoPs • SSL Termination</div>
+                    </div>
+                  </div>
+                  <span class="node-badge">480k QPS</span>
+                </div>
+                <div class="node-connector-line"></div>
+
+                <div class="topology-node" data-node="gateway" tabindex="0" role="button" aria-pressed="false">
+                  <div class="node-info-left">
+                    <span class="node-indicator"></span>
+                    <div>
+                      <div class="node-name">2. API Gateway &amp; Envoy Mesh</div>
+                      <div class="node-subtext">eBPF Packet Routing • JWT Token Auth</div>
+                    </div>
+                  </div>
+                  <span class="node-badge">0.8ms Latency</span>
+                </div>
+                <div class="node-connector-line"></div>
+
+                <div class="topology-node" data-node="services" tabindex="0" role="button" aria-pressed="false">
+                  <div class="node-info-left">
+                    <span class="node-indicator"></span>
+                    <div>
+                      <div class="node-name">3. Core Service Mesh (Kubernetes)</div>
+                      <div class="node-subtext">Stateless Microservices • Rust / Go</div>
+                    </div>
+                  </div>
+                  <span class="node-badge">96 Replicas</span>
+                </div>
+                <div class="node-connector-line"></div>
+
+                <div class="topology-node" data-node="kafka" tabindex="0" role="button" aria-pressed="false">
+                  <div class="node-info-left">
+                    <span class="node-indicator"></span>
+                    <div>
+                      <div class="node-name">4. Distributed Event Stream</div>
+                      <div class="node-subtext">Apache Kafka / Redpanda • Outbox Bus</div>
+                    </div>
+                  </div>
+                  <span class="node-badge">Zero Data Loss</span>
+                </div>
+                <div class="node-connector-line"></div>
+
+                <div class="topology-node" data-node="db" tabindex="0" role="button" aria-pressed="false">
+                  <div class="node-info-left">
+                    <span class="node-indicator"></span>
+                    <div>
+                      <div class="node-name">5. Multi-Region Storage &amp; Cache</div>
+                      <div class="node-subtext">CockroachDB SQL + Dragonfly In-Memory</div>
+                    </div>
+                  </div>
+                  <span class="node-badge">Raft Sharded</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-Time Node Inspection Drawer -->
+            <div class="topology-inspector-card" id="topologyInspector" aria-live="polite">
+              <div>
+                <div class="inspector-header">
+                  <div style="font-size: var(--font-xs); color: var(--secondary-accent); font-family: ui-monospace, monospace; margin-bottom: 0.25rem;">COMPONENT INSPECTOR</div>
+                  <div class="inspector-title" id="inspectorNodeTitle">Global Anycast Edge &amp; WAF</div>
+                </div>
+
+                <div class="inspector-metric-row">
+                  <span class="inspector-metric-label">Operational Status</span>
+                  <span class="inspector-metric-value" style="color: var(--secondary-accent);" id="inspectorStatus">Optimal (100% Health)</span>
+                </div>
+                <div class="inspector-metric-row">
+                  <span class="inspector-metric-label">Current Throughput</span>
+                  <span class="inspector-metric-value" id="inspectorRps">482,190 req/s</span>
+                </div>
+                <div class="inspector-metric-row">
+                  <span class="inspector-metric-label">p99 Tail Latency</span>
+                  <span class="inspector-metric-value" id="inspectorLatency">0.42 ms</span>
+                </div>
+                <div class="inspector-metric-row">
+                  <span class="inspector-metric-label">Redundancy / Nodes</span>
+                  <span class="inspector-metric-value" id="inspectorNodes">32 Global Edge PoPs</span>
+                </div>
+
+                <div class="inspector-recommendation" id="inspectorAdvice">
+                  <strong>Consultant Finding:</strong> Anycast routing eliminates transit bottlenecks. Edge compression &amp; geo-routing reduced origin server egress charges by 34% in recent engagement.
+                </div>
+              </div>
+
+              <div style="margin-top: 1.5rem;">
+                <button class="btn btn-outline" style="width: 100%;" id="btnInjectTopologyLoad">Simulate 3x Traffic Surge</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Module 3: Dynamic Code Snippet Tab Components -->
+      <section id="snippets" aria-labelledby="snippets-heading">
+        <div class="app-container">
+          <div class="section-badge">Battle-Tested Primitives</div>
+          <h2 class="section-heading" id="snippets-heading">Dynamic Code Snippet Library</h2>
+          <p class="section-subheading">Tested architectural recipes delivered across enterprise client engagements. Click tabs to switch patterns.</p>
+
+          <div class="snippet-tabs-wrapper">
+            <div class="snippet-nav-bar" role="tablist" aria-label="Snippet Patterns">
+              <button class="snippet-tab-btn active" role="tab" aria-selected="true" data-snippet="lock">Distributed Lock (Redis Lua)</button>
+              <button class="snippet-tab-btn" role="tab" aria-selected="false" data-snippet="outbox">Transactional Outbox (SQL)</button>
+              <button class="snippet-tab-btn" role="tab" aria-selected="false" data-snippet="concurrency">Adaptive Concurrency</button>
+            </div>
+            <div class="snippet-content-body">
+              <div class="snippet-meta-row">
+                <span class="snippet-desc" id="snippetDescLabel">Atomic lease-based lock acquisition and release with TTL safeguard.</span>
+                <button class="snippet-copy-btn" id="btnCopySnippet">📋 Copy Snippet</button>
+              </div>
+              <pre style="background: var(--bg-terminal); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); overflow-x: auto;"><code id="snippetCodeDisplay" class="font-mono" style="font-size: var(--font-xs); color: var(--text-primary); line-height: 1.6;"></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Module 4: Corporate Tech Stack Badges Matrix -->
+      <section id="techstack" aria-labelledby="techstack-heading">
+        <div class="app-container">
+          <div class="section-badge">Enterprise Technology Matrix</div>
+          <h2 class="section-heading" id="techstack-heading">Production Mastery Badges</h2>
+          <p class="section-subheading">Verified hands-on production engineering across infrastructure tiers. Filter by domain or click badges to view consulting expertise.</p>
+
+          <div class="tech-filter-bar" role="group" aria-label="Tech Stack Category Filter">
+            <button class="filter-pill active" data-filter="all">All Disciplines (12)</button>
+            <button class="filter-pill" data-filter="infra">Cloud &amp; Infra</button>
+            <button class="filter-pill" data-filter="distributed">Distributed Systems</button>
+            <button class="filter-pill" data-filter="streaming">Streaming &amp; Data</button>
+            <button class="filter-pill" data-filter="observability">Observability</button>
+          </div>
+
+          <div class="tech-badge-grid" id="techBadgeGrid">
+            <!-- Tech badges injected via JS -->
+          </div>
+
+          <div class="tech-detail-modal" id="techDetailDrawer" aria-live="polite">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+              <h4 id="techDetailTitle" style="font-size: var(--font-base); font-weight: 700; color: var(--text-contrast);">Kubernetes &amp; Service Mesh</h4>
+              <span id="techDetailExp" class="bento-tag">10+ Yrs Production</span>
+            </div>
+            <p id="techDetailDesc" style="font-size: var(--font-sm); color: var(--text-secondary); line-height: 1.6;"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversion Goal: Pristine Form Validation Section -->
+      <section id="audit-form" aria-labelledby="audit-heading">
+        <div class="app-container">
+          <div class="audit-form-card">
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <div class="section-badge">Direct Executive Advisory</div>
+              <h2 class="section-heading" id="audit-heading" style="font-size: var(--font-xl);">Request Systems Architecture Audit</h2>
+              <p style="color: var(--text-secondary); font-size: var(--font-sm); max-width: 580px; margin: 0 auto;">
+                Schedule a confidential 45-minute architectural review. All discussions are protected under two-way non-disclosure.
+              </p>
+            </div>
+
+            <form id="triageForm" novalidate aria-label="Architecture Audit Request Form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="clientName" class="form-label">
+                    <span>Full Name *</span>
+                  </label>
+                  <input type="text" id="clientName" class="form-input" placeholder="e.g. Sarah Jenkins" required aria-required="true" />
+                  <span class="form-error-msg" id="nameError">Please enter your full name (minimum 2 characters).</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="clientEmail" class="form-label">
+                    <span>Corporate Email *</span>
+                  </label>
+                  <input type="email" id="clientEmail" class="form-input" placeholder="sarah@company.com" required aria-required="true" />
+                  <span class="form-error-msg" id="emailError">Please enter a valid work email address.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="companyScale" class="form-label">
+                    <span>Current Throughput Scale</span>
+                  </label>
+                  <select id="companyScale" class="form-select">
+                    <option value="scale-1">&lt; 10M requests / day</option>
+                    <option value="scale-2">10M - 100M requests / day</option>
+                    <option value="scale-3">100M - 1B requests / day</option>
+                    <option value="scale-4">Billion+ requests / day (Hyper-scale)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="advisoryTrack" class="form-label">
+                    <span>Advisory Track</span>
+                  </label>
+                  <select id="advisoryTrack" class="form-select">
+                    <option value="latency">Tail Latency &amp; Kernel Profiling</option>
+                    <option value="resilience">Multi-Region Failover &amp; Consensus</option>
+                    <option value="finops">Cloud FinOps &amp; Egress Cost Reduction</option>
+                    <option value="modernization">Monolith to Event-Driven Mesh</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-span-full">
+                  <label for="systemDetails" class="form-label">
+                    <span>System Bottleneck &amp; Context *</span>
+                    <span id="charCounter" style="color: var(--text-muted);">0 / 500</span>
+                  </label>
+                  <textarea id="systemDetails" class="form-textarea" rows="4" placeholder="Briefly describe your current architecture challenge (e.g., Redis cluster exhaustion under p99 spikes, cross-AZ traffic bills, Kafka partition lag)..." required aria-required="true" maxlength="500"></textarea>
+                  <span class="form-error-msg" id="detailsError">Please share at least 20 characters about your system challenges.</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.75rem;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;" id="btnSubmitForm">
+                  Submit Systems Audit Request
+                </button>
+              </div>
+
+              <div class="form-feedback-banner" id="formSuccessBanner" role="status">
+                <div style="font-weight: 700; color: var(--secondary-accent); font-size: var(--font-base); margin-bottom: 0.4rem;">
+                  ✓ Triage Dossier Received
+                </div>
+                <p style="font-size: var(--font-sm); color: var(--text-secondary); margin-bottom: 0.5rem;">
+                  Thank you. Dr. Chen personally reviews incoming inquiries within 4 business hours. A calendar invitation with prep agenda will be dispatched to your corporate email.
+                </p>
+                <div style="font-family: ui-monospace, monospace; font-size: var(--font-xs); color: var(--typography-contrast-neutral);" id="auditReferenceId">
+                  Audit Ref: AUD-2026-DIST-8841
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Custom Semantic Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="app-container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-title">ALEC CHEN // CONSULTING</div>
+            <p class="footer-desc">
+              Principal Software Engineering Consultant specializing in high-throughput distributed architectures, zero-downtime database strategies, and mission-critical cloud resiliency.
+            </p>
+            <div style="font-family: ui-monospace, monospace; font-size: 0.75rem; color: var(--text-muted);">
+              PGP Key: 88AF 310B 9E21 C740 4EFA
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Navigation</div>
+            <ul class="footer-links">
+              <li><a href="#hero">Overview</a></li>
+              <li><a href="#offerings">Capabilities</a></li>
+              <li><a href="#ide">Interactive IDE</a></li>
+              <li><a href="#topology">Architecture Graph</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Engineering</div>
+            <ul class="footer-links">
+              <li><a href="#snippets">Distributed Snippets</a></li>
+              <li><a href="#techstack">Tech Stack Matrix</a></li>
+              <li><a href="#audit-form">Schedule Triage</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Availability &amp; Base</div>
+            <div style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-xs);">
+              San Francisco, CA &amp; Zurich, CH<br />
+              Timezones: PST (UTC-8) &amp; CET (UTC+1)<br />
+              Advisory: Remote &amp; On-Site Sprints
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Alec Chen. All rights reserved. Encrypted &amp; confidential.</div>
+          <a href="#header" class="btn btn-outline" style="padding: 0.4rem 0.8rem; font-size: var(--font-xs);">↑ Back to Top</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Fully Functional Vanilla Embedded Modern JavaScript Logic Scripts -->
+    <script>
+      (function() {
+        "use strict";
+
+        // =========================================================================
+        // 1. DATA STATE REPOSITORIES
+        // =========================================================================
+        const CODE_FILES = {
+          "raft_consensus.go": {
+            lang: "Go 1.23.2",
+            lines: [
+              `<span class="token-kw">package</span> consensus`,
+              ``,
+              `<span class="token-kw">import</span> (`,
+              `    <span class="token-str">"context"</span>`,
+              `    <span class="token-str">"sync/atomic"</span>`,
+              `    <span class="token-str">"time"</span>`,
+              `)`,
+              ``,
+              `<span class="token-comm">// RaftNode represents a fault-tolerant consensus leader</span>`,
+              `<span class="token-kw">type</span> <span class="token-type">RaftNode</span> <span class="token-kw">struct</span> {`,
+              `    term        <span class="token-type">uint64</span>`,
+              `    isLeader    <span class="token-type">atomic.Bool</span>`,
+              `    heartbeat   <span class="token-type">time.Duration</span>`,
+              `}`,
+              ``,
+              `<span class="token-kw">func</span> (r *<span class="token-type">RaftNode</span>) <span class="token-fn">ElectLeader</span>(ctx <span class="token-type">context.Context</span>) <span class="token-type">error</span> {`,
+              `    <span class="token-comm">// High-speed election timeout randomized: 150-300ms</span>`,
+              `    atomic.AddUint64(&r.term, 1)`,
+              `    r.isLeader.Store(<span class="token-kw">true</span>)`,
+              `    <span class="token-kw">return</span> <span class="token-kw">nil</span>`,
+              `}`
+            ],
+            raw: `package consensus\n\nimport (\n    "context"\n    "sync/atomic"\n    "time"\n)\n\ntype RaftNode struct {\n    term      uint64\n    isLeader  atomic.Bool\n    heartbeat time.Duration\n}\n\nfunc (r *RaftNode) ElectLeader(ctx context.Context) error {\n    atomic.AddUint64(&r.term, 1)\n    r.isLeader.Store(true)\n    return nil\n}`
+          },
+          "token_bucket.rs": {
+            lang: "Rust 1.81",
+            lines: [
+              `<span class="token-kw">use</span> std::sync::atomic::{AtomicU64, Ordering};`,
+              `<span class="token-kw">use</span> std::time::Instant;`,
+              ``,
+              `<span class="token-kw">pub struct</span> <span class="token-type">TokenBucket</span> {`,
+              `    capacity: <span class="token-type">u64</span>,`,
+              `    tokens: <span class="token-type">AtomicU64</span>,`,
+              `    last_refill: <span class="token-type">Instant</span>,`,
+              `}`,
+              ``,
+              `<span class="token-kw">impl</span> <span class="token-type">TokenBucket</span> {`,
+              `    <span class="token-kw">pub fn</span> <span class="token-fn">try_acquire</span>(&<span class="token-kw">self</span>, cost: <span class="token-type">u64</span>) -> <span class="token-type">bool</span> {`,
+              `        <span class="token-kw">let</span> current = <span class="token-kw">self</span>.tokens.load(Ordering::Acquire);`,
+              `        <span class="token-kw">if</span> current >= cost {`,
+              `            <span class="token-kw">self</span>.tokens.fetch_sub(cost, Ordering::SeqCst);`,
+              `            <span class="token-kw">true</span>`,
+              `        } <span class="token-kw">else</span> {`,
+              `            <span class="token-kw">false</span>`,
+              `        }`,
+              `    }`,
+              `}`
+            ],
+            raw: `use std::sync::atomic::{AtomicU64, Ordering};\nuse std::time::Instant;\n\npub struct TokenBucket {\n    capacity: u64,\n    tokens: AtomicU64,\n    last_refill: Instant,\n}\n\nimpl TokenBucket {\n    pub fn try_acquire(&self, cost: u64) -> bool {\n        let current = self.tokens.load(Ordering::Acquire);\n        if current >= cost {\n            self.tokens.fetch_sub(cost, Ordering::SeqCst);\n            true\n        } else {\n            false\n        }\n    }\n}`
+          },
+          "circuit_breaker.ts": {
+            lang: "TypeScript 5.6",
+            lines: [
+              `<span class="token-kw">export class</span> <span class="token-type">CircuitBreaker</span> {`,
+              `  <span class="token-kw">private</span> failures = 0;`,
+              `  <span class="token-kw">private</span> state: <span class="token-str">'CLOSED'</span> | <span class="token-str">'OPEN'</span> | <span class="token-str">'HALF_OPEN'</span> = <span class="token-str">'CLOSED'</span>;`,
+              ``,
+              `  <span class="token-kw">async</span> <span class="token-fn">execute</span>&lt;T&gt;(action: () =&gt; Promise&lt;T&gt;): Promise&lt;T&gt; {`,
+              `    <span class="token-kw">if</span> (<span class="token-kw">this</span>.state === <span class="token-str">'OPEN'</span>) {`,
+              `      <span class="token-kw">throw new</span> Error(<span class="token-str">'Circuit is OPEN: Request Rejected'</span>);`,
+              `    }`,
+              `    <span class="token-kw">try</span> {`,
+              `      <span class="token-kw">const</span> result = <span class="token-kw">await</span> action();`,
+              `      <span class="token-kw">this</span>.failures = 0;`,
+              `      <span class="token-kw">return</span> result;`,
+              `    } <span class="token-kw">catch</span> (err) {`,
+              `      <span class="token-kw">this</span>.failures++;`,
+              `      <span class="token-kw">if</span> (<span class="token-kw">this</span>.failures &gt;= 5) <span class="token-kw">this</span>.state = <span class="token-str">'OPEN'</span>;`,
+              `      <span class="token-kw">throw</span> err;`,
+              `    }`,
+              `  }`,
+              `}`
+            ],
+            raw: `export class CircuitBreaker {\n  private failures = 0;\n  private state: 'CLOSED' | 'OPEN' | 'HALF_OPEN' = 'CLOSED';\n\n  async execute<T>(action: () => Promise<T>): Promise<T> {\n    if (this.state === 'OPEN') throw new Error('Circuit OPEN');\n    try {\n      const res = await action();\n      this.failures = 0;\n      return res;\n    } catch (err) {\n      if (++this.failures >= 5) this.state = 'OPEN';\n      throw err;\n    }\n  }\n}`
+          },
+          "event_mesh.py": {
+            lang: "Python 3.12",
+            lines: [
+              `<span class="token-kw">import</span> asyncio`,
+              `<span class="token-kw">from</span> dataclasses <span class="token-kw">import</span> dataclass`,
+              ``,
+              `<span class="token-kw">@dataclass</span>(frozen=<span class="token-kw">True</span>)`,
+              `<span class="token-kw">class</span> <span class="token-type">OutboxEvent</span>:`,
+              `    event_id: <span class="token-type">str</span>`,
+              `    aggregate: <span class="token-type">str</span>`,
+              `    payload: <span class="token-type">dict</span>`,
+              ``,
+              `<span class="token-kw">class</span> <span class="token-type">EventPublisher</span>:`,
+              `    <span class="token-kw">async def</span> <span class="token-fn">publish_cdc</span>(<span class="token-kw">self</span>, event: <span class="token-type">OutboxEvent</span>) -> <span class="token-type">bool</span>:`,
+              `        <span class="token-comm"># Guaranteed at-least-once zero-loss delivery</span>`,
+              `        <span class="token-kw">await</span> asyncio.sleep(0.001)`,
+              `        <span class="token-kw">return</span> <span class="token-kw">True</span>`
+            ],
+            raw: `import asyncio\nfrom dataclasses import dataclass\n\n@dataclass(frozen=True)\nclass OutboxEvent:\n    event_id: str\n    aggregate: str\n    payload: dict\n\nclass EventPublisher:\n    async def publish_cdc(self, event: OutboxEvent) -> bool:\n        await asyncio.sleep(0.001)\n        return True`
+          }
+        };
+
+        const TOPOLOGY_DATA = {
+          edge: {
+            title: "Global Anycast Edge & WAF",
+            status: "Optimal (100% Health)",
+            rps: "482,190 req/s",
+            latency: "0.42 ms",
+            nodes: "32 Global PoPs",
+            advice: "Consultant Finding: Edge compression & geo-routing reduced origin server egress charges by 34% in recent engagement."
+          },
+          gateway: {
+            title: "API Gateway & Envoy Mesh",
+            status: "Normal Flow (0.01% Drop)",
+            rps: "482,190 req/s",
+            latency: "0.85 ms",
+            nodes: "18 Gateway Envoys",
+            advice: "Consultant Finding: eBPF socket tracing revealed TLS handshake serialization bottleneck, yielding 2.1x throughput improvement when tuned."
+          },
+          services: {
+            title: "Core Service Mesh (Kubernetes)",
+            status: "Healthy (Autoscaling Nominal)",
+            rps: "410,500 req/s",
+            latency: "2.10 ms",
+            nodes: "96 Pod Replicas",
+            advice: "Consultant Finding: Swapped reflection-heavy JSON marshaling for zero-copy Protobuf/gRPC, cutting cluster CPU utilization by 41%."
+          },
+          kafka: {
+            title: "Distributed Event Stream (Kafka)",
+            status: "Zero Lag (Replication 3x)",
+            rps: "320,000 msg/s",
+            latency: "1.05 ms",
+            nodes: "9 Broker Cluster",
+            advice: "Consultant Finding: Configured linger.ms=15 and zstd compression; compressed 4.2TB daily streaming log footprint down to 1.1TB."
+          },
+          db: {
+            title: "Multi-Region Storage & Cache",
+            status: "Consensus Active (Quorum 5/5)",
+            rps: "195,000 qps",
+            latency: "3.40 ms",
+            nodes: "15 Raft Data Nodes",
+            advice: "Consultant Finding: Implemented distributed keyspace partitioning; eliminated cross-continental read latency on 94% of hot tenant keys."
+          }
+        };
+
+        const SNIPPETS = {
+          lock: {
+            desc: "Atomic lease-based lock acquisition and release with TTL safeguard using Redis Lua script.",
+            code: `-- Acquire lock with unique fencing token & TTL (milliseconds)
+local key = KEYS[1]
+local token = ARGV[1]
+local ttl = tonumber(ARGV[2])
+
+if redis.call("SET", key, token, "NX", "PX", ttl) then
+  return 1
+else
+  return 0
+end`
+          },
+          outbox: {
+            desc: "Guaranteed at-least-once event delivery via transactional outbox table with PostgreSQL Debezium CDC.",
+            code: `-- Transactional Outbox Pattern: Atomic business state + event dispatch
+BEGIN;
+
+INSERT INTO orders (id, customer_id, total_amount, status)
+VALUES ('ord_9941', 'cust_110', 4850.00, 'CONFIRMED');
+
+INSERT INTO outbox_events (id, aggregate_type, aggregate_id, event_type, payload)
+VALUES (
+  gen_random_uuid(),
+  'Order',
+  'ord_9941',
+  'OrderConfirmed',
+  '{"total": 4850.00, "currency": "USD"}'::jsonb
+);
+
+COMMIT;`
+          },
+          concurrency: {
+            desc: "Adaptive concurrency controller calculating dynamic concurrency limits via Little's Law.",
+            code: `// Adaptive Concurrency Controller (Little's Law: L = λ * W)
+export class ConcurrencyLimiter {
+  private inFlight = 0;
+  private currentLimit = 100;
+
+  public canAcquire(): boolean {
+    return this.inFlight < this.currentLimit;
+  }
+
+  public recordLatency(sampleMs: number, p99TargetMs: number) {
+    if (sampleMs > p99TargetMs) {
+      // Backoff exponentially
+      this.currentLimit = Math.max(10, Math.floor(this.currentLimit * 0.85));
+    } else {
+      // Additive increase
+      this.currentLimit = Math.min(2000, this.currentLimit + 2);
+    }
+  }
+}`
+          }
+        };
+
+        const TECH_STACK = [
+          { name: "Kubernetes & Mesh", cat: "infra", glyph: "K8s", exp: "11 Yrs Prod", desc: "Multi-cluster federation, Cilium CNI, Karpenter autoscaling, and zero-trust mTLS." },
+          { name: "Terraform & IaC", cat: "infra", glyph: "TF", exp: "9 Yrs Prod", desc: "Enterprise module standards, multi-account AWS Organizations, and drift-free state." },
+          { name: "AWS & GCP Hybrid", cat: "infra", glyph: "CLD", exp: "12 Yrs Prod", desc: "DirectConnect / Interconnect transit routing, Spot fleet optimization, and FinOps." },
+          { name: "Rust Systems", cat: "distributed", glyph: "RS", exp: "7 Yrs Prod", desc: "Zero-allocation memory models, high-speed proxying, and custom eBPF filters." },
+          { name: "Go Microservices", cat: "distributed", glyph: "GO", exp: "10 Yrs Prod", desc: "High-concurrency goroutine pools, channels, gRPC Protobuf services at scale." },
+          { name: "CockroachDB", cat: "distributed", glyph: "CRDB", exp: "6 Yrs Prod", desc: "Multi-region distributed SQL, Raft ranges, and serializable consistency tuning." },
+          { name: "Apache Kafka", cat: "streaming", glyph: "KFK", exp: "9 Yrs Prod", desc: "Tiered storage, partition rebalancing, schema registry governance, and mirror-maker." },
+          { name: "Redis / Dragonfly", cat: "streaming", glyph: "RDS", exp: "11 Yrs Prod", desc: "Multi-threaded cache design, Lua atomic scripts, and cache stampede protection." },
+          { name: "PostgreSQL Internals", cat: "streaming", glyph: "PG", exp: "14 Yrs Prod", desc: "WAL archiving, logical replication, vacuum freeze tuning, and query plan optimization." },
+          { name: "Prometheus & OTel", cat: "observability", glyph: "OTEL", exp: "8 Yrs Prod", desc: "High-cardinality metric deduplication, distributed tracing sampling, and SLA monitors." },
+          { name: "eBPF & Cilium", cat: "observability", glyph: "BPF", exp: "5 Yrs Prod", desc: "Kernel packet tracing, zero-overhead HTTP/gRPC inspection, and network observability." },
+          { name: "Chaos Mesh", cat: "observability", glyph: "CHS", exp: "6 Yrs Prod", desc: "Automated network delay injection, pod killing drills, and disaster failover verification." }
+        ];
+
+        // =========================================================================
+        // 2. MODERN DARK DEVELOPER IDE ENGINE
+        // =========================================================================
+        let currentActiveFile = "raft_consensus.go";
+
+        function renderIDE(filename) {
+          const fileData = CODE_FILES[filename];
+          if (!fileData) return;
+          currentActiveFile = filename;
+
+          // Update tabs
+          document.querySelectorAll(".ide-tab").forEach(tab => {
+            const isMatch = tab.getAttribute("data-file") === filename;
+            tab.classList.toggle("active", isMatch);
+            tab.setAttribute("aria-selected", isMatch ? "true" : "false");
+          });
+
+          // Update header
+          const nameEl = document.getElementById("ideCurrentFileName");
+          if (nameEl) nameEl.textContent = `${filename} — consultant-core (${fileData.lang})`;
+
+          // Render gutter & lines
+          const gutterEl = document.getElementById("ideGutter");
+          const codeEl = document.getElementById("ideCodeDisplay");
+          if (!gutterEl || !codeEl) return;
+
+          gutterEl.innerHTML = fileData.lines.map((_, i) => i + 1).join("<br>");
+          codeEl.innerHTML = fileData.lines.join("<br>");
+        }
+
+        function initIDE() {
+          renderIDE(currentActiveFile);
+
+          // Tab click events
+          document.querySelectorAll(".ide-tab").forEach(tab => {
+            tab.addEventListener("click", () => {
+              const file = tab.getAttribute("data-file");
+              if (file) renderIDE(file);
+            });
+          });
+
+          // Run Benchmark button
+          const btnRun = document.getElementById("btnRunBenchmark");
+          const termEl = document.getElementById("terminalOutput");
+          const statusText = document.getElementById("ideStatusText");
+
+          if (btnRun && termEl) {
+            btnRun.addEventListener("click", () => {
+              btnRun.textContent = "⏳ Running...";
+              btnRun.disabled = true;
+
+              const ts = new Date().toISOString().split("T")[1].slice(0, 8);
+              termEl.innerHTML += `<div class="terminal-log-line info">[${ts}] Executing benchmark: Benchmark${currentActiveFile.replace(/[^a-zA-Z]/g, "")}-16...</div>`;
+              termEl.scrollTop = termEl.scrollHeight;
+
+              setTimeout(() => {
+                const ops = (Math.floor(Math.random() * 500) + 1200).toLocaleString();
+                const nsOp = (Math.random() * 1.5 + 0.6).toFixed(2);
+                termEl.innerHTML += `<div class="terminal-log-line success">[PASS] 50,000,000 iterations @ ${ops}k ops/sec (${nsOp} ns/op, 0 B/op allocs)</div>`;
+                termEl.innerHTML += `<div class="terminal-log-line">[METRIC] Zero GC pressure detected. p99 execution duration: 1.14ms.</div>`;
+                termEl.scrollTop = termEl.scrollHeight;
+                if (statusText) statusText.textContent = `Memory: 0 B/op • Rate: ${ops}k ops/s • Status: Benchmarked ✓`;
+                btnRun.textContent = "▶ Run Benchmark";
+                btnRun.disabled = false;
+              }, 600);
+            });
+          }
+
+          // Inject Chaos button
+          const btnChaos = document.getElementById("btnSimulateChaos");
+          if (btnChaos && termEl) {
+            btnChaos.addEventListener("click", () => {
+              const ts = new Date().toISOString().split("T")[1].slice(0, 8);
+              termEl.innerHTML += `<div class="terminal-log-line warn">[${ts}] ⚡ INJECTING 120ms NETWORK JITTER &amp; MINORITY PARTITION...</div>`;
+              setTimeout(() => {
+                termEl.innerHTML += `<div class="terminal-log-line success">[RECOVERY] Raft leader lease maintained via quorum. Zero dropped write operations.</div>`;
+                termEl.scrollTop = termEl.scrollHeight;
+              }, 500);
+            });
+          }
+
+          // Copy Source button
+          const btnCopy = document.getElementById("btnCopyIdeCode");
+          if (btnCopy) {
+            btnCopy.addEventListener("click", () => {
+              const rawCode = CODE_FILES[currentActiveFile]?.raw || "";
+              navigator.clipboard.writeText(rawCode).then(() => {
+                const prev = btnCopy.textContent;
+                btnCopy.textContent = "✓ Copied!";
+                setTimeout(() => { btnCopy.textContent = prev; }, 1800);
+              });
+            });
+          }
+        }
+
+        // =========================================================================
+        // 3. ARCHITECTURAL TOPOLOGY DIAGRAM NODES
+        // =========================================================================
+        function initTopology() {
+          const nodes = document.querySelectorAll(".topology-node");
+          const titleEl = document.getElementById("inspectorNodeTitle");
+          const statusEl = document.getElementById("inspectorStatus");
+          const rpsEl = document.getElementById("inspectorRps");
+          const latencyEl = document.getElementById("inspectorLatency");
+          const nodesEl = document.getElementById("inspectorNodes");
+          const adviceEl = document.getElementById("inspectorAdvice");
+
+          nodes.forEach(node => {
+            node.addEventListener("click", () => {
+              nodes.forEach(n => {
+                n.classList.remove("active");
+                n.setAttribute("aria-pressed", "false");
+              });
+              node.classList.add("active");
+              node.setAttribute("aria-pressed", "true");
+
+              const key = node.getAttribute("data-node");
+              const data = TOPOLOGY_DATA[key];
+              if (data && titleEl) {
+                titleEl.textContent = data.title;
+                if (statusEl) statusEl.textContent = data.status;
+                if (rpsEl) rpsEl.textContent = data.rps;
+                if (latencyEl) latencyEl.textContent = data.latency;
+                if (nodesEl) nodesEl.textContent = data.nodes;
+                if (adviceEl) adviceEl.innerHTML = `<strong>Consultant Finding:</strong> ${data.advice}`;
+              }
+            });
+          });
+
+          // Surge Simulator
+          const btnSurge = document.getElementById("btnInjectTopologyLoad");
+          if (btnSurge && rpsEl) {
+            btnSurge.addEventListener("click", () => {
+              const originalRps = rpsEl.textContent;
+              rpsEl.textContent = "1,446,570 req/s (SURGE ACTIVE)";
+              rpsEl.style.color = "var(--secondary-accent)";
+              btnSurge.textContent = "✓ Traffic Surge Active (Scaling +24 Nodes)";
+
+              setTimeout(() => {
+                rpsEl.textContent = originalRps;
+                rpsEl.style.color = "";
+                btnSurge.textContent = "Simulate 3x Traffic Surge";
+              }, 2500);
+            });
+          }
+        }
+
+        // =========================================================================
+        // 4. DYNAMIC CODE SNIPPETS
+        // =========================================================================
+        function initSnippets() {
+          const tabBtns = document.querySelectorAll(".snippet-tab-btn");
+          const descEl = document.getElementById("snippetDescLabel");
+          const codeEl = document.getElementById("snippetCodeDisplay");
+          const copyBtn = document.getElementById("btnCopySnippet");
+
+          function setSnippet(key) {
+            const data = SNIPPETS[key];
+            if (!data) return;
+            tabBtns.forEach(btn => {
+              const isMatch = btn.getAttribute("data-snippet") === key;
+              btn.classList.toggle("active", isMatch);
+              btn.setAttribute("aria-selected", isMatch ? "true" : "false");
+            });
+            if (descEl) descEl.textContent = data.desc;
+            if (codeEl) codeEl.textContent = data.code;
+          }
+
+          tabBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+              const key = btn.getAttribute("data-snippet");
+              if (key) setSnippet(key);
+            });
+          });
+
+          setSnippet("lock");
+
+          if (copyBtn && codeEl) {
+            copyBtn.addEventListener("click", () => {
+              navigator.clipboard.writeText(codeEl.textContent || "").then(() => {
+                copyBtn.textContent = "✓ Copied!";
+                setTimeout(() => { copyBtn.textContent = "📋 Copy Snippet"; }, 1800);
+              });
+            });
+          }
+        }
+
+        // =========================================================================
+        // 5. CORPORATE TECH STACK BADGES
+        // =========================================================================
+        function initTechStack() {
+          const grid = document.getElementById("techBadgeGrid");
+          const detailDrawer = document.getElementById("techDetailDrawer");
+          const detailTitle = document.getElementById("techDetailTitle");
+          const detailExp = document.getElementById("techDetailExp");
+          const detailDesc = document.getElementById("techDetailDesc");
+          const filterPills = document.querySelectorAll(".filter-pill");
+
+          if (!grid) return;
+
+          function renderGrid(filter) {
+            grid.innerHTML = "";
+            const filtered = filter === "all" ? TECH_STACK : TECH_STACK.filter(t => t.cat === filter);
+
+            filtered.forEach(tech => {
+              const el = document.createElement("div");
+              el.className = "tech-badge-item hover-lift";
+              el.tabIndex = 0;
+              el.setAttribute("role", "button");
+              el.setAttribute("aria-label", `${tech.name} - ${tech.exp}`);
+              el.innerHTML = `
+                <div class="tech-badge-glyph">${tech.glyph}</div>
+                <div>
+                  <div class="tech-badge-title">${tech.name}</div>
+                  <div class="tech-badge-sub">${tech.exp}</div>
+                </div>
+              `;
+
+              el.addEventListener("click", () => {
+                document.querySelectorAll(".tech-badge-item").forEach(b => b.classList.remove("active"));
+                el.classList.add("active");
+                if (detailDrawer && detailTitle && detailExp && detailDesc) {
+                  detailTitle.textContent = tech.name;
+                  detailExp.textContent = tech.exp;
+                  detailDesc.textContent = `${tech.desc} Audited across multiple high-throughput production environments with strict zero-downtime requirements.`;
+                  detailDrawer.classList.add("show");
+                }
+              });
+
+              grid.appendChild(el);
+            });
+          }
+
+          filterPills.forEach(pill => {
+            pill.addEventListener("click", () => {
+              filterPills.forEach(p => p.classList.remove("active"));
+              pill.classList.add("active");
+              renderGrid(pill.getAttribute("data-filter") || "all");
+            });
+          });
+
+          renderGrid("all");
+        }
+
+        // =========================================================================
+        // 6. PRISTINE FORM VALIDATION & INTERACTION
+        // =========================================================================
+        function initFormValidation() {
+          const form = document.getElementById("triageForm");
+          const nameInput = document.getElementById("clientName");
+          const emailInput = document.getElementById("clientEmail");
+          const detailsInput = document.getElementById("systemDetails");
+          const charCounter = document.getElementById("charCounter");
+          const successBanner = document.getElementById("formSuccessBanner");
+
+          const nameError = document.getElementById("nameError");
+          const emailError = document.getElementById("emailError");
+          const detailsError = document.getElementById("detailsError");
+
+          // Character Counter
+          if (detailsInput && charCounter) {
+            detailsInput.addEventListener("input", () => {
+              const len = detailsInput.value.length;
+              charCounter.textContent = `${len} / 500`;
+            });
+          }
+
+          function validateName() {
+            if (!nameInput) return true;
+            const valid = nameInput.value.trim().length >= 2;
+            nameInput.classList.toggle("is-invalid", !valid);
+            nameInput.classList.toggle("is-valid", valid);
+            if (nameError) nameError.classList.toggle("visible", !valid);
+            return valid;
+          }
+
+          function validateEmail() {
+            if (!emailInput) return true;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const valid = emailRegex.test(emailInput.value.trim());
+            emailInput.classList.toggle("is-invalid", !valid);
+            emailInput.classList.toggle("is-valid", valid);
+            if (emailError) emailError.classList.toggle("visible", !valid);
+            return valid;
+          }
+
+          function validateDetails() {
+            if (!detailsInput) return true;
+            const valid = detailsInput.value.trim().length >= 20;
+            detailsInput.classList.toggle("is-invalid", !valid);
+            detailsInput.classList.toggle("is-valid", valid);
+            if (detailsError) detailsError.classList.toggle("visible", !valid);
+            return valid;
+          }
+
+          if (nameInput) nameInput.addEventListener("blur", validateName);
+          if (emailInput) emailInput.addEventListener("blur", validateEmail);
+          if (detailsInput) detailsInput.addEventListener("blur", validateDetails);
+
+          if (form) {
+            form.addEventListener("submit", (e) => {
+              e.preventDefault();
+              const isNameValid = validateName();
+              const isEmailValid = validateEmail();
+              const isDetailsValid = validateDetails();
+
+              if (isNameValid && isEmailValid && isDetailsValid) {
+                const submitBtn = document.getElementById("btnSubmitForm");
+                if (submitBtn) {
+                  submitBtn.disabled = true;
+                  submitBtn.textContent = "Processing Confidential Triage...";
+                }
+
+                setTimeout(() => {
+                  if (successBanner) {
+                    successBanner.classList.add("show");
+                    successBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                  }
+                  if (submitBtn) {
+                    submitBtn.textContent = "✓ Audit Scheduled";
+                    submitBtn.style.background = "#059669";
+                  }
+                }, 750);
+              }
+            });
+          }
+        }
+
+        // =========================================================================
+        // 7. RESPONSIVE MOBILE MENU
+        // =========================================================================
+        function initMobileMenu() {
+          const btn = document.getElementById("mobileMenuBtn");
+          const navLinks = document.querySelector(".nav-links");
+
+          if (btn && navLinks) {
+            btn.addEventListener("click", () => {
+              const isOpen = navLinks.style.display === "flex";
+              if (isOpen) {
+                navLinks.style.display = "";
+                btn.setAttribute("aria-expanded", "false");
+              } else {
+                navLinks.style.display = "flex";
+                navLinks.style.flexDirection = "column";
+                navLinks.style.position = "absolute";
+                navLinks.style.top = "72px";
+                navLinks.style.left = "0";
+                navLinks.style.right = "0";
+                navLinks.style.background = "#090D16";
+                navLinks.style.padding = "1.5rem";
+                navLinks.style.borderBottom = "1px solid var(--border-subtle)";
+                btn.setAttribute("aria-expanded", "true");
+              }
+            });
+
+            // Close on link click
+            document.querySelectorAll(".nav-link").forEach(link => {
+              link.addEventListener("click", () => {
+                if (window.innerWidth <= 960) {
+                  navLinks.style.display = "";
+                  btn.setAttribute("aria-expanded", "false");
+                }
+              });
+            });
+          }
+        }
+
+        // Bootstrap on DOM Ready
+        document.addEventListener("DOMContentLoaded", () => {
+          initIDE();
+          initTopology();
+          initSnippets();
+          initTechStack();
+          initFormValidation();
+          initMobileMenu();
+        });
+
+      })();
+    </script>
+  </body>
+</html>
